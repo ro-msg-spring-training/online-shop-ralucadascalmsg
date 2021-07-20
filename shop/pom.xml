@@ -15,9 +15,6 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
-		<flyway.user></flyway.user>
-		<flyway.password></flyway.password>
-		<flyway.schemas>shopDB</flyway.schemas>
 	</properties>
 	<dependencies>
 		<dependency>
