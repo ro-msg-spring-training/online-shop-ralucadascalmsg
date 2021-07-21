@@ -1,6 +1,6 @@
 package ro.msg.learning.shop.Repositories;
-import org.springframework.data.repository.Repository;
-import ro.msg.learning.shop.Model.Revenue;
+import org.springframework.data.jpa.repository.JpaRepository;
+import ro.msg.learning.shop.Model.Entities.Revenue;
 
-public interface RevenueRepository extends Repository<Revenue,Integer>{
+public interface RevenueRepository extends JpaRepository<Revenue,Integer>{
 }

@@ -4,7 +4,7 @@ create table `product_category` (
     `description` varchar(255)
 );
 
-create table `suplier` (
+create table `supplier` (
     `id` integer not null auto_increment PRIMARY KEY,
     `name` varchar(255)
 );
@@ -16,8 +16,8 @@ create table `product` (
     `description` varchar(255),
     `price` numeric,
     `weight` real,
-    `category` int REFERENCES product_category(id),
-    `suplier` int REFERENCES suplier(id),
+    `category_id` int REFERENCES product_category(id),
+    `supplier_id` int REFERENCES supplier(id),
     `imageUrl` varchar(255)
 );
 
@@ -32,8 +32,8 @@ create table `location` (
 
 create table `stock` (
     `id` integer not null auto_increment PRIMARY KEY,
-    `product` int REFERENCES product(id),
-    `location` int REFERENCES location(id),
+    `product_id` int REFERENCES product(id),
+    `location_id` int REFERENCES location(id),
     `quantity` int
 );
 
@@ -48,8 +48,8 @@ create table `customer` (
 
 create table `orderT` (
     `id` integer not null auto_increment PRIMARY KEY,
-    `shipped_from` int REFERENCES location(id),
-    `customer` int REFERENCES customer(id),
+    `shipped_from_id` int REFERENCES location(id),
+    `customer_id` int REFERENCES customer(id),
     `created_at` DATETIME,
     `address_country` varchar(255),
     `address_city` varchar(255),
@@ -59,14 +59,14 @@ create table `orderT` (
 
 create table `order_detail` (
     `id` integer not null auto_increment PRIMARY KEY,
-    `orderT` int REFERENCES orderT(id),
-    `product` int REFERENCES product(id),
+    `orderT_id` int REFERENCES orderT(id),
+    `product_id` int REFERENCES product(id),
     `quantity` int
 );
 
 create table `revenue` (
     `id` integer not null auto_increment PRIMARY KEY,
-    `location` int REFERENCES location(id),
+    `location_id` int REFERENCES location(id),
     `date` DATETIME,
     `sum` numeric
 );

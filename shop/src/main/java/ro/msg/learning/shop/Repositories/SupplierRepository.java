@@ -1,6 +1,6 @@
 package ro.msg.learning.shop.Repositories;
-import org.springframework.data.repository.Repository;
-import ro.msg.learning.shop.Model.Supplier;
+import org.springframework.data.jpa.repository.JpaRepository;
+import ro.msg.learning.shop.Model.Entities.Supplier;
 
-public interface SupplierRepository extends Repository<Supplier,Integer> {
+public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
 }

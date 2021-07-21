@@ -1,7 +1,7 @@
 package ro.msg.learning.shop.Repositories;
 
-import org.springframework.data.repository.Repository;
-import ro.msg.learning.shop.Model.Location;
+import org.springframework.data.jpa.repository.JpaRepository;
+import ro.msg.learning.shop.Model.Entities.Location;
 
-public interface LocationRepository extends Repository<Location,Integer> {
+public interface LocationRepository extends JpaRepository<Location,Integer> {
 }
