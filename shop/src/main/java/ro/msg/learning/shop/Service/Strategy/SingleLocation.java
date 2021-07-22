@@ -1,16 +1,20 @@
 package ro.msg.learning.shop.Service.Strategy;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import ro.msg.learning.shop.Model.DTO.GoodOrderDTO;
 import ro.msg.learning.shop.Model.DTO.OrderedProductDTO;
+import ro.msg.learning.shop.Model.Entities.Location;
 import ro.msg.learning.shop.Model.Entities.Product;
 import ro.msg.learning.shop.Model.Entities.Stock;
+import ro.msg.learning.shop.Repositories.LocationRepository;
 import ro.msg.learning.shop.Repositories.ProductRepository;
 import ro.msg.learning.shop.Repositories.StockRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 
 @NoArgsConstructor
 public class SingleLocation implements StrategyInterface {
@@ -18,21 +22,37 @@ public class SingleLocation implements StrategyInterface {
     StockRepository stockRepository;
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    LocationRepository locationRepository;
 
     public Collection<GoodOrderDTO> OrderLocation (Collection<OrderedProductDTO> orderedProducts) {
         Collection<Stock> stocks = stockRepository.findAll();
+        Collection<Stock> stocksAux = new ArrayList<Stock>();
         Collection<Product> products = productRepository.findAll();
+        Collection<Location> locations = locationRepository.findAll();
         Collection<GoodOrderDTO> goods = new ArrayList<GoodOrderDTO>();
         Product goodProduct = new Product();
 
-        for (Stock s : stocks) {
-            boolean suf = true;
-            for (OrderedProductDTO p : orderedProducts) {
-                if (p.getId() != s.getProduct().getId() || p.getQuantity() > s.getQuantity()) {
-                    suf = false;
+        for (Location l: locations)
+        {
+            stocksAux.removeAll(stocksAux);
+            int f=0;
+            for (Stock s : stocks)
+            {
+                if (s.getLocation().getName()==l.getName())
+                {
+                    stocksAux.add(s);
                 }
             }
-            if (suf == true) {
+                for (OrderedProductDTO p : orderedProducts) {
+                    for (Stock s:stocksAux) {
+                     if (p.getId() != s.getProduct().getId() || p.getQuantity() > s.getQuantity()) {
+                        f++;
+                    }
+                }
+            }
+
+            if (f == orderedProducts.size()) {
                 for (OrderedProductDTO p : orderedProducts) {
                     for (Product pr : products) {
                         if (pr.getId() == p.getId()) {
@@ -41,14 +61,14 @@ public class SingleLocation implements StrategyInterface {
                     }
                     GoodOrderDTO dto = new GoodOrderDTO();
                     dto.setNameProduct(goodProduct.getName());
-                    dto.setPrice(goodProduct.getPrice());
                     dto.setQuantity(p.getQuantity());
-                    dto.setNameLocation(s.getLocation().getName());
+                    dto.setNameLocation(l.getName());
                     goods.add(dto);
                 }
             }
         }
-        if ( goods.isEmpty())
+
+        if (goods.isEmpty())
         {
             throw new RuntimeException("Insufficient stock");
         }

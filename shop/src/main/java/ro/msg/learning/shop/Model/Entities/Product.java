@@ -1,6 +1,7 @@
 package ro.msg.learning.shop.Model.Entities;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,7 +13,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Data
 @Entity
-@EqualsAndHashCode(callSuper=false)
+@SuperBuilder
+@EqualsAndHashCode(callSuper=true)
 public class Product extends BaseEntity {
      private String name;
      private String description;

@@ -1,6 +1,7 @@
 package ro.msg.learning.shop.Model.Entities;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 //Subpachet Model--o clasa DTO contine build-uri din declar toate campurile din product si pc
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @MappedSuperclass
 @NoArgsConstructor
 @Data
+@SuperBuilder
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

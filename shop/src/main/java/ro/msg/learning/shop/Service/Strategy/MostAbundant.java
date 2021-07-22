@@ -52,7 +52,6 @@ public class MostAbundant implements StrategyInterface {
           }
           GoodOrderDTO dto = new GoodOrderDTO();
           dto.setNameProduct(goodProduct.getName());
-          dto.setPrice(goodProduct.getPrice());
           dto.setQuantity(goodQuantity);
           dto.setNameLocation(goodStock.getLocation().getName());
           goods.add(dto);

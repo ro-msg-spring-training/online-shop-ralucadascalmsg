@@ -1,6 +1,8 @@
 package ro.msg.learning.shop.Model.Entities;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 import java.lang.*;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Data
 @Entity
+@SuperBuilder
 @EqualsAndHashCode(callSuper=false)
 public class Order extends BaseEntity {
       @ManyToOne(fetch = FetchType.EAGER)
