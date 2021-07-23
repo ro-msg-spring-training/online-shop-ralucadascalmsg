@@ -2,7 +2,7 @@ package ro.msg.learning.shop.Service.Strategy;
 
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import ro.msg.learning.shop.Model.DTO.GoodOrderDTO;
+import ro.msg.learning.shop.Model.DTO.OrderResponseDTO;
 import ro.msg.learning.shop.Model.DTO.OrderedProductDTO;
 import ro.msg.learning.shop.Model.Entities.Product;
 import ro.msg.learning.shop.Model.Entities.Stock;
@@ -19,10 +19,10 @@ public class MostAbundant implements StrategyInterface {
     @Autowired
     ProductRepository productRepository;
 
-    public Collection<GoodOrderDTO> OrderLocation (Collection<OrderedProductDTO> orderedProducts) {
+    public Collection<OrderResponseDTO> OrderLocation (Collection<OrderedProductDTO> orderedProducts) {
       Collection <Stock> stocks = stockRepository.findAll();
       Collection <Product> products = productRepository.findAll();
-      Collection <GoodOrderDTO> goods= new ArrayList<GoodOrderDTO>();
+      Collection <OrderResponseDTO> goods= new ArrayList<OrderResponseDTO>();
       Product goodProduct= new Product();
       Stock goodStock=new Stock();
       int goodQuantity = 0;
@@ -50,7 +50,7 @@ public class MostAbundant implements StrategyInterface {
                 }
             }
           }
-          GoodOrderDTO dto = new GoodOrderDTO();
+          OrderResponseDTO dto = new OrderResponseDTO();
           dto.setNameProduct(goodProduct.getName());
           dto.setQuantity(goodQuantity);
           dto.setNameLocation(goodStock.getLocation().getName());

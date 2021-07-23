@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper=false)
 public class Revenue extends BaseEntity {
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Location location;
     private LocalDateTime date;
     private BigDecimal sum;

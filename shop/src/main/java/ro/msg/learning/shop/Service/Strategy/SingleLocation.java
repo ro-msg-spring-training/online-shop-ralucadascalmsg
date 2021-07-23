@@ -1,9 +1,8 @@
 package ro.msg.learning.shop.Service.Strategy;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import ro.msg.learning.shop.Model.DTO.GoodOrderDTO;
+import ro.msg.learning.shop.Model.DTO.OrderResponseDTO;
 import ro.msg.learning.shop.Model.DTO.OrderedProductDTO;
 import ro.msg.learning.shop.Model.Entities.Location;
 import ro.msg.learning.shop.Model.Entities.Product;
@@ -14,7 +13,6 @@ import ro.msg.learning.shop.Repositories.StockRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Optional;
 
 @NoArgsConstructor
 public class SingleLocation implements StrategyInterface {
@@ -25,12 +23,12 @@ public class SingleLocation implements StrategyInterface {
     @Autowired
     LocationRepository locationRepository;
 
-    public Collection<GoodOrderDTO> OrderLocation (Collection<OrderedProductDTO> orderedProducts) {
+    public Collection<OrderResponseDTO> OrderLocation (Collection<OrderedProductDTO> orderedProducts) {
         Collection<Stock> stocks = stockRepository.findAll();
         Collection<Stock> stocksAux = new ArrayList<Stock>();
         Collection<Product> products = productRepository.findAll();
         Collection<Location> locations = locationRepository.findAll();
-        Collection<GoodOrderDTO> goods = new ArrayList<GoodOrderDTO>();
+        Collection<OrderResponseDTO> goods = new ArrayList<OrderResponseDTO>();
         Product goodProduct = new Product();
 
         for (Location l: locations)
@@ -59,7 +57,7 @@ public class SingleLocation implements StrategyInterface {
                             goodProduct = pr;
                         }
                     }
-                    GoodOrderDTO dto = new GoodOrderDTO();
+                    OrderResponseDTO dto = new OrderResponseDTO();
                     dto.setNameProduct(goodProduct.getName());
                     dto.setQuantity(p.getQuantity());
                     dto.setNameLocation(l.getName());

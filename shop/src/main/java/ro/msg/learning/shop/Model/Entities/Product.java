@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
@@ -21,8 +22,10 @@ public class Product extends BaseEntity {
      private BigDecimal price;
      private double weight;
      @ManyToOne(fetch = FetchType.EAGER)
+     @JoinColumn(name = "category_id", referencedColumnName = "id")
      private ProductCategory category;
      @ManyToOne(fetch = FetchType.EAGER)
+     @JoinColumn(name = "supplier_id", referencedColumnName = "id")
      private Supplier supplier;
      private String ImageUrl;
 }

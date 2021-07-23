@@ -18,7 +18,7 @@ create table `product` (
     `weight` real,
     `category_id` int REFERENCES product_category(id),
     `supplier_id` int REFERENCES supplier(id),
-    `imageUrl` varchar(255)
+    `image_url` varchar(255)
 );
 
 create table `location` (
@@ -59,7 +59,7 @@ create table `orderT` (
 
 create table `order_detail` (
     `id` integer not null auto_increment PRIMARY KEY,
-    `orderT_id` int REFERENCES orderT(id),
+    `order_id` int REFERENCES orderT(id),
     `product_id` int REFERENCES product(id),
     `quantity` int
 );

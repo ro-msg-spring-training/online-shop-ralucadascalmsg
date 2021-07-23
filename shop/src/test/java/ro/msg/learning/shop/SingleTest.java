@@ -8,18 +8,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import ro.msg.learning.shop.Model.DTO.GoodOrderDTO;
+import ro.msg.learning.shop.Model.DTO.OrderResponseDTO;
 import ro.msg.learning.shop.Model.DTO.OrderedProductDTO;
 import ro.msg.learning.shop.Model.Entities.Location;
-import ro.msg.learning.shop.Model.Entities.OrderDetail;
 import ro.msg.learning.shop.Model.Entities.Product;
 import ro.msg.learning.shop.Model.Entities.Stock;
 import ro.msg.learning.shop.Repositories.LocationRepository;
 import ro.msg.learning.shop.Repositories.ProductRepository;
 import ro.msg.learning.shop.Repositories.StockRepository;
 import ro.msg.learning.shop.Service.Strategy.SingleLocation;
-import ro.msg.learning.shop.Service.StrategySelection;
 
 import java.util.Collection;
 import java.util.List;
@@ -132,12 +129,12 @@ public class SingleTest {
 
         Assertions.assertEquals(
                 List.of(
-                        GoodOrderDTO.builder()
+                        OrderResponseDTO.builder()
                                 .nameProduct(p1.getName())
                                 .nameLocation(l2.getName())
                                 .quantity(8)
                                 .build(),
-                        GoodOrderDTO.builder()
+                        OrderResponseDTO.builder()
                                 .nameProduct(p2.getName())
                                 .nameLocation(l2.getName())
                                 .quantity(10)
