@@ -20,7 +20,7 @@ public class OrderController {
     createOrder(@RequestBody OrderRequestDTO orderDto) {
         Order order= orderService.createOrder(orderDto);
         //send mail
-        mailService.sendSimpleMessage();
+       // mailService.sendSimpleMessage();
         return new ResponseEntity<>(orderService.createOrder(orderDto), HttpStatus.OK);
     }
 }

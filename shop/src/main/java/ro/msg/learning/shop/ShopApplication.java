@@ -8,6 +8,7 @@ import org.springframework.context.event.EventListener;
 import ro.msg.learning.shop.mail.MailService;
 
 import javax.mail.MessagingException;
+import java.io.IOException;
 
 @SpringBootApplication
 public class ShopApplication {
@@ -20,8 +21,8 @@ public class ShopApplication {
 		SpringApplication.run(ShopApplication.class, args);
 	}
         @EventListener(ApplicationReadyEvent.class)
-		public void triggerMail() throws MessagingException {
-			mailService.sendHTMLMessage();
+		public void triggerMail() throws MessagingException, IOException {
+			mailService.sendMessage();
 		}
 
 

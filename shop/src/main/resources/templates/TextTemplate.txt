@@ -1,2 +1,2 @@
-Hello, #{customer.firstName}!
+Hello, #{customer.firstName} #{customer.lastName}!
  Order has been successfully created.
