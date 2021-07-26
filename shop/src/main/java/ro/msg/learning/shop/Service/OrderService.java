@@ -1,22 +1,22 @@
-package ro.msg.learning.shop.Service;
+package ro.msg.learning.shop.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ro.msg.learning.shop.Model.DTO.OrderResponseDTO;
-import ro.msg.learning.shop.Model.DTO.OrderRequestDTO;
-import ro.msg.learning.shop.Model.DTO.OrderedProductDTO;
-import ro.msg.learning.shop.Model.Entities.*;
-import ro.msg.learning.shop.Repositories.OrderDetailRepository;
-import ro.msg.learning.shop.Repositories.OrderRepository;
-import ro.msg.learning.shop.Repositories.ProductRepository;
-import ro.msg.learning.shop.Repositories.StockRepository;
-import ro.msg.learning.shop.Service.Strategy.StrategyInterface;
+import ro.msg.learning.shop.model.*;
+import ro.msg.learning.shop.dto.OrderResponseDTO;
+import ro.msg.learning.shop.dto.OrderRequestDTO;
+import ro.msg.learning.shop.dto.OrderedProductDTO;
+import ro.msg.learning.shop.model.*;
+import ro.msg.learning.shop.repositories.OrderDetailRepository;
+import ro.msg.learning.shop.repositories.OrderRepository;
+import ro.msg.learning.shop.repositories.ProductRepository;
+import ro.msg.learning.shop.repositories.StockRepository;
+import ro.msg.learning.shop.service.strategy.StrategyInterface;
 import ro.msg.learning.shop.converter.LocationConverter;
 import ro.msg.learning.shop.converter.OrderConverter;
 import ro.msg.learning.shop.converter.ProductConverter;
 
 import java.util.Collection;
-import java.util.spi.LocaleNameProvider;
 
 @Service
 @AllArgsConstructor

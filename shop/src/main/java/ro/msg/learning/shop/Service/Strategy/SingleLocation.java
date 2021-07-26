@@ -1,15 +1,15 @@
-package ro.msg.learning.shop.Service.Strategy;
+package ro.msg.learning.shop.service.strategy;
 
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import ro.msg.learning.shop.Model.DTO.OrderResponseDTO;
-import ro.msg.learning.shop.Model.DTO.OrderedProductDTO;
-import ro.msg.learning.shop.Model.Entities.Location;
-import ro.msg.learning.shop.Model.Entities.Product;
-import ro.msg.learning.shop.Model.Entities.Stock;
-import ro.msg.learning.shop.Repositories.LocationRepository;
-import ro.msg.learning.shop.Repositories.ProductRepository;
-import ro.msg.learning.shop.Repositories.StockRepository;
+import ro.msg.learning.shop.dto.OrderResponseDTO;
+import ro.msg.learning.shop.dto.OrderedProductDTO;
+import ro.msg.learning.shop.model.Location;
+import ro.msg.learning.shop.model.Product;
+import ro.msg.learning.shop.model.Stock;
+import ro.msg.learning.shop.repositories.LocationRepository;
+import ro.msg.learning.shop.repositories.ProductRepository;
+import ro.msg.learning.shop.repositories.StockRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;

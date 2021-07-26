@@ -1,7 +1,7 @@
-package ro.msg.learning.shop.Service.Strategy;
+package ro.msg.learning.shop.service.strategy;
 
-import ro.msg.learning.shop.Model.DTO.OrderResponseDTO;
-import ro.msg.learning.shop.Model.DTO.OrderedProductDTO;
+import ro.msg.learning.shop.dto.OrderResponseDTO;
+import ro.msg.learning.shop.dto.OrderedProductDTO;
 
 import java.util.Collection;
 

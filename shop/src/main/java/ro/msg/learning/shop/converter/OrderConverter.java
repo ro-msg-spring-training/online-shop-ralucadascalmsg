@@ -1,9 +1,7 @@
 package ro.msg.learning.shop.converter;
 
-import ro.msg.learning.shop.Model.DTO.OrderRequestDTO;
-import ro.msg.learning.shop.Model.DTO.OrderResponseDTO;
-import ro.msg.learning.shop.Model.Entities.Order;
-import ro.msg.learning.shop.Model.Entities.Product;
+import ro.msg.learning.shop.dto.OrderRequestDTO;
+import ro.msg.learning.shop.model.Order;
 
 public class OrderConverter {
     public Order dtoToModel(OrderRequestDTO orderRequestDTO)

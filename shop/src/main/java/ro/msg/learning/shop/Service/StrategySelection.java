@@ -1,11 +1,10 @@
-package ro.msg.learning.shop.Service;
+package ro.msg.learning.shop.service;
 
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ro.msg.learning.shop.Service.Strategy.MostAbundant;
-import ro.msg.learning.shop.Service.Strategy.SingleLocation;
-import ro.msg.learning.shop.Service.Strategy.StrategyInterface;
+import ro.msg.learning.shop.service.strategy.MostAbundant;
+import ro.msg.learning.shop.service.strategy.SingleLocation;
+import ro.msg.learning.shop.service.strategy.StrategyInterface;
 
 @Configuration
 public class StrategySelection {

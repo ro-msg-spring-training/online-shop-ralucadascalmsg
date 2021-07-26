@@ -1,4 +1,4 @@
-package ro.msg.learning.shop.Security;
+package ro.msg.learning.shop.security;
 
 import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
